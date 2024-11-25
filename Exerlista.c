@@ -1,6 +1,6 @@
 /*Autor.....João Victor Simeão Carneiro
   Data......24/10/2024
-  Objetivo..Exercicio 1*/
+  Objetivo..PROGRAMA PARA CALCULAR MEDIA DE 3 NUMEROS*/
 
 #include <stdio.h>
 #include <windows.h>
@@ -11,6 +11,8 @@ float calcmedia(float num[3]);
 void gotoxy(int x, int y);
 void layout();
 void limpar();
+
+
 
 // Programa Main
 int main()

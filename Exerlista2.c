@@ -1,6 +1,6 @@
 /*Autor.....João Victor Simeão Carneiro
   Data......24/10/2024
-  Objetivo..Exercicio 2*/
+  Objetivo..DESCOBRIR DE O NUMERO E PRIMO*/
 
 #include <stdio.h>
 #include <windows.h>

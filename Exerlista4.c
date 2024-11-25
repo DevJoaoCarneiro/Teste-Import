@@ -1,6 +1,6 @@
 /*Autor.....João Victor Simeão Carneiro
   Data......24/10/2024
-  Objetivo..Exercicio 4*/
+  Objetivo..MAIOR NUMERO DENTRO DO VETOR*/
 
 #include <stdio.h>
 #include <windows.h>

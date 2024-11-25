@@ -1,55 +1,10 @@
 /*Autor.....João Victor Simeão Carneiro
   Data......24/10/2024
-  Objetivo..Exercicio Utfpr*/
+  Objetivo..Segundos para minutos e horas*/
 
 #include <stdio.h>
 #include <windows.h>
-#define Max 10
-
-void gotoxy(int x, int y);
-
-void layout();
-
-int main()
-{
-    int velocMax;
-    int velocMotorista;
-    int multa = 0;
-    int reiniciar;
-
-    do{
-    system ("color 0c");
-    layout();
-    
-    gotoxy(20, Max);
-    printf("Insira a velocidade da via ..........");
-    scanf("%d", &velocMax);
-    gotoxy(20, Max + 2);
-    printf("Insira a velocidade do motorista ....");
-    scanf("%d", &velocMotorista);
-
-    if (velocMotorista > velocMax)
-    {
-        do
-        {
-            multa++;
-            velocMotorista--;
-        } while (velocMotorista > velocMax);
-
-        gotoxy(20, Max + 4);
-        printf("A multa a ser paga e ................%d", multa * 5);
-    }
-    else
-    {
-        gotoxy(20, Max + 4);
-        printf("=====O motorista nao tomou multa=====");
-    }
-    gotoxy (40,21);
-    scanf("%d", &reiniciar);
-    }while (reiniciar==1);
-    gotoxy (01, 23);
-    return 0;
-}
+#define Cord 8
 
 void gotoxy(int x, int y)
 {
@@ -59,9 +14,16 @@ void gotoxy(int x, int y)
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
-void layout()
+int main()
 {
+    int seg;
+    int min;
+    int hora = 0;
     int i;
+    int reiniciar;
+
+    //layout
+    do{
     system("cls");
     printf("===============================================================================\n");
     for (i = 0; i < 22; i++)
@@ -83,4 +45,45 @@ void layout()
     printf("===============================================================================\n");
     gotoxy(01, 21);
     printf("REINICIAR PROGRAMA? (1-SIM 2-NAO).....");
+
+    gotoxy(01, 24);
+    //layout
+
+    gotoxy (20,Cord);
+    printf("Digite o tempo em segundos........");
+    scanf("%d", &seg);
+
+        min = seg / 60;
+        hora= min/60;
+
+    gotoxy (20,Cord+2);
+    printf("Seu tempo em segundos ........ %d \n", seg);
+    gotoxy (20,Cord+4);
+    printf("Seu tempo em minutos ......... %d \n", min);
+    gotoxy (20,Cord+6);
+    printf("Seu tempo em horas ........... %d \n", hora);
+
+    if (seg>=60){
+        do{
+            seg=seg-60;
+
+        }while(seg>=60);
+    }
+
+    if (min>=60){
+        do{
+            min=min-60;
+
+        }while(min>=60);
+    }
+
+    gotoxy (20,Cord+8);
+    printf("%d Hora %d Minutos %d Segundos", hora, min, seg);
+
+    gotoxy(40, 21);
+    scanf("%d", &reiniciar);
+
+    gotoxy(01, 24);
+    }while (reiniciar==1);
+    return 0;
 }
